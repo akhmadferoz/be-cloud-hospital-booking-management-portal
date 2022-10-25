@@ -1,0 +1,47 @@
+enum USER_ROLE {
+  ADMIN
+  DOCTOR
+  PATIENT
+}
+
+type User @model @auth(rules: [{ allow: public}]) {
+  id: ID!
+  fName: String
+  lName: String
+  email: String
+  role: USER_ROLE
+  createdAt: AWSDateTime!
+}
+
+type Doctor @model @auth(rules: [{ allow: public}]) {
+  id: ID!
+  fName: String
+  lName: String
+  email: String
+  role: USER_ROLE
+  specialty: String
+  createdAt: AWSDateTime!
+}
+
+type Patient @model @auth(rules: [{ allow: public}]) {
+  # @key(name: "byDoctor", fields: ["doctorID"])
+  id: ID!
+  fName: String
+  lName: String
+  email: String
+  role: USER_ROLE
+  createdAt: AWSDateTime!
+}
+
+type Appointment @model @auth(rules: [{ allow: public}]) {
+  # @key(name: "byDoctor", fields: ["doctorID"])
+  id: ID!
+  doctorID: ID!
+  doctor: Doctor @connection(fields: ["doctorID"])
+  patientID: ID!
+  patient: Patient @connection(fields: ["patientID"])
+  date: String
+  time: String
+  notes: String
+  createdAt: AWSDateTime!
+}

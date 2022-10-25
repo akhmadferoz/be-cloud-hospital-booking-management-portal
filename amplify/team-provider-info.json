@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-hospitalmanagement-dev-50814-authRole",
+      "UnauthRoleArn": "arn:aws:iam::427965145062:role/amplify-hospitalmanagement-dev-50814-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::427965145062:role/amplify-hospitalmanagement-dev-50814-authRole",
+      "Region": "ap-southeast-1",
+      "DeploymentBucketName": "amplify-hospitalmanagement-dev-50814-deployment",
+      "UnauthRoleName": "amplify-hospitalmanagement-dev-50814-unauthRole",
+      "StackName": "amplify-hospitalmanagement-dev-50814",
+      "StackId": "arn:aws:cloudformation:ap-southeast-1:427965145062:stack/amplify-hospitalmanagement-dev-50814/2127c510-53f9-11ed-ac0c-062688af2c9e",
+      "AmplifyAppId": "d3o1kaeh1qjkqu"
+    },
+    "categories": {
+      "auth": {
+        "hospitalmanagement5366f189": {}
+      }
+    }
+  }
+}
