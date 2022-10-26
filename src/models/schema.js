@@ -200,6 +200,27 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
+                "phone": {
+                    "name": "phone",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "dob": {
+                    "name": "dob",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "age": {
+                    "name": "age",
+                    "isArray": false,
+                    "type": "Int",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "role": {
                     "name": "role",
                     "isArray": false,
@@ -302,17 +323,19 @@ export const schema = {
                         "targetName": "patientID"
                     }
                 },
-                "date": {
-                    "name": "date",
+                "bookingDateTime": {
+                    "name": "bookingDateTime",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "time": {
-                    "name": "time",
+                "status": {
+                    "name": "status",
                     "isArray": false,
-                    "type": "String",
+                    "type": {
+                        "enum": "AppointmentStatus"
+                    },
                     "isRequired": false,
                     "attributes": []
                 },
@@ -347,6 +370,26 @@ export const schema = {
                     "properties": {}
                 },
                 {
+                    "type": "key",
+                    "properties": {
+                        "name": "byPatient",
+                        "fields": [
+                            "patientID"
+                        ],
+                        "queryField": "listAppointmentsByPatient"
+                    }
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "byDoctor",
+                        "fields": [
+                            "doctorID"
+                        ],
+                        "queryField": "listAppointmentsByDoctor"
+                    }
+                },
+                {
                     "type": "auth",
                     "properties": {
                         "rules": [
@@ -373,8 +416,16 @@ export const schema = {
                 "DOCTOR",
                 "PATIENT"
             ]
+        },
+        "AppointmentStatus": {
+            "name": "AppointmentStatus",
+            "values": [
+                "PENDING",
+                "CONFIRMED",
+                "CANCELLED"
+            ]
         }
     },
     "nonModels": {},
-    "version": "a8f9c22861f62441d1a482c3497080a9"
+    "version": "c0bd69017663a92913c9410477715cd4"
 };

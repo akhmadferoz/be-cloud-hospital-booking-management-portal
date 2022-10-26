@@ -6,6 +6,12 @@ export enum UserRole {
   PATIENT = "PATIENT"
 }
 
+export enum AppointmentStatus {
+  PENDING = "PENDING",
+  CONFIRMED = "CONFIRMED",
+  CANCELLED = "CANCELLED"
+}
+
 
 
 type UserMetaData = {
@@ -54,6 +60,9 @@ export declare class Patient {
   readonly fName?: string;
   readonly lName?: string;
   readonly email?: string;
+  readonly phone?: string;
+  readonly dob?: string;
+  readonly age?: number;
   readonly role?: UserRole | keyof typeof UserRole;
   readonly createdAt: string;
   readonly updatedAt?: string;
@@ -67,8 +76,8 @@ export declare class Appointment {
   readonly doctor?: Doctor;
   readonly patientID: string;
   readonly patient?: Patient;
-  readonly date?: string;
-  readonly time?: string;
+  readonly bookingDateTime?: string;
+  readonly status?: AppointmentStatus | keyof typeof AppointmentStatus;
   readonly notes?: string;
   readonly createdAt: string;
   readonly updatedAt?: string;

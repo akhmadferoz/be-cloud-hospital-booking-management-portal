@@ -163,6 +163,9 @@ export const syncPatients = /* GraphQL */ `
         fName
         lName
         email
+        phone
+        dob
+        age
         role
         createdAt
         _version
@@ -182,6 +185,9 @@ export const getPatient = /* GraphQL */ `
       fName
       lName
       email
+      phone
+      dob
+      age
       role
       createdAt
       _version
@@ -203,6 +209,9 @@ export const listPatients = /* GraphQL */ `
         fName
         lName
         email
+        phone
+        dob
+        age
         role
         createdAt
         _version
@@ -250,6 +259,9 @@ export const syncAppointments = /* GraphQL */ `
           fName
           lName
           email
+          phone
+          dob
+          age
           role
           createdAt
           _version
@@ -257,8 +269,8 @@ export const syncAppointments = /* GraphQL */ `
           _lastChangedAt
           updatedAt
         }
-        date
-        time
+        bookingDateTime
+        status
         notes
         createdAt
         _version
@@ -295,6 +307,9 @@ export const getAppointment = /* GraphQL */ `
         fName
         lName
         email
+        phone
+        dob
+        age
         role
         createdAt
         _version
@@ -302,8 +317,8 @@ export const getAppointment = /* GraphQL */ `
         _lastChangedAt
         updatedAt
       }
-      date
-      time
+      bookingDateTime
+      status
       notes
       createdAt
       _version
@@ -342,6 +357,9 @@ export const listAppointments = /* GraphQL */ `
           fName
           lName
           email
+          phone
+          dob
+          age
           role
           createdAt
           _version
@@ -349,8 +367,130 @@ export const listAppointments = /* GraphQL */ `
           _lastChangedAt
           updatedAt
         }
-        date
-        time
+        bookingDateTime
+        status
+        notes
+        createdAt
+        _version
+        _deleted
+        _lastChangedAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const listAppointmentsByPatient = /* GraphQL */ `
+  query ListAppointmentsByPatient(
+    $patientID: ID
+    $sortDirection: ModelSortDirection
+    $filter: ModelAppointmentFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listAppointmentsByPatient(
+      patientID: $patientID
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        doctorID
+        doctor {
+          id
+          fName
+          lName
+          email
+          role
+          specialty
+          createdAt
+          _version
+          _deleted
+          _lastChangedAt
+          updatedAt
+        }
+        patientID
+        patient {
+          id
+          fName
+          lName
+          email
+          phone
+          dob
+          age
+          role
+          createdAt
+          _version
+          _deleted
+          _lastChangedAt
+          updatedAt
+        }
+        bookingDateTime
+        status
+        notes
+        createdAt
+        _version
+        _deleted
+        _lastChangedAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const listAppointmentsByDoctor = /* GraphQL */ `
+  query ListAppointmentsByDoctor(
+    $doctorID: ID
+    $sortDirection: ModelSortDirection
+    $filter: ModelAppointmentFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listAppointmentsByDoctor(
+      doctorID: $doctorID
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        doctorID
+        doctor {
+          id
+          fName
+          lName
+          email
+          role
+          specialty
+          createdAt
+          _version
+          _deleted
+          _lastChangedAt
+          updatedAt
+        }
+        patientID
+        patient {
+          id
+          fName
+          lName
+          email
+          phone
+          dob
+          age
+          role
+          createdAt
+          _version
+          _deleted
+          _lastChangedAt
+          updatedAt
+        }
+        bookingDateTime
+        status
         notes
         createdAt
         _version

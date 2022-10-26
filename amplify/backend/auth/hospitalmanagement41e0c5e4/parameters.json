@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "hospitalmanagement5366f189_identitypool_5366f189",
+    "identityPoolName": "hospitalmanagement41e0c5e4_identitypool_41e0c5e4",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "hospit5366f189",
-    "userPoolName": "hospitalmanagement5366f189_userpool_5366f189",
+    "resourceNameTruncated": "hospit41e0c5e4",
+    "userPoolName": "hospitalmanagement41e0c5e4_userpool_41e0c5e4",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -18,9 +18,7 @@
     "passwordPolicyMinLength": 8,
     "passwordPolicyCharacters": [],
     "requiredAttributes": [
-        "email",
-        "family_name",
-        "given_name"
+        "email"
     ],
     "aliasAttributes": [],
     "userpoolClientGenerateSecret": false,
@@ -31,10 +29,10 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "hospit5366f189_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "hospit41e0c5e4_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "5366f189",
-    "resourceName": "hospitalmanagement5366f189",
+    "sharedId": "41e0c5e4",
+    "resourceName": "hospitalmanagement41e0c5e4",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
@@ -52,14 +50,8 @@
     "usernameAttributes": [
         "email"
     ],
-    "triggers": "{}",
     "userPoolGroupList": [],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,
-    "parentStack": {
-        "Ref": "AWS::StackId"
-    },
-    "breakCircularDependency": true,
-    "permissions": [],
     "dependsOn": []
 }

@@ -8,6 +8,12 @@ const UserRole = {
   "PATIENT": "PATIENT"
 };
 
+const AppointmentStatus = {
+  "PENDING": "PENDING",
+  "CONFIRMED": "CONFIRMED",
+  "CANCELLED": "CANCELLED"
+};
+
 const { User, Doctor, Patient, Appointment } = initSchema(schema);
 
 export {
@@ -15,5 +21,6 @@ export {
   Doctor,
   Patient,
   Appointment,
-  UserRole
+  UserRole,
+  AppointmentStatus
 };

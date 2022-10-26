@@ -18,7 +18,7 @@
     }
   },
   "auth": {
-    "hospitalmanagement5366f189": {
+    "hospitalmanagement41e0c5e4": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
@@ -26,9 +26,7 @@
       "frontendAuthConfig": {
         "loginMechanisms": [],
         "signupAttributes": [
-          "EMAIL",
-          "FAMILY_NAME",
-          "GIVEN_NAME"
+          "EMAIL"
         ],
         "passwordProtectionSettings": {
           "passwordPolicyMinLength": 8,

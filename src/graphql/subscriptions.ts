@@ -108,6 +108,9 @@ export const onCreatePatient = /* GraphQL */ `
       fName
       lName
       email
+      phone
+      dob
+      age
       role
       createdAt
       _version
@@ -124,6 +127,9 @@ export const onUpdatePatient = /* GraphQL */ `
       fName
       lName
       email
+      phone
+      dob
+      age
       role
       createdAt
       _version
@@ -140,6 +146,9 @@ export const onDeletePatient = /* GraphQL */ `
       fName
       lName
       email
+      phone
+      dob
+      age
       role
       createdAt
       _version
@@ -173,6 +182,9 @@ export const onCreateAppointment = /* GraphQL */ `
         fName
         lName
         email
+        phone
+        dob
+        age
         role
         createdAt
         _version
@@ -180,8 +192,8 @@ export const onCreateAppointment = /* GraphQL */ `
         _lastChangedAt
         updatedAt
       }
-      date
-      time
+      bookingDateTime
+      status
       notes
       createdAt
       _version
@@ -215,6 +227,9 @@ export const onUpdateAppointment = /* GraphQL */ `
         fName
         lName
         email
+        phone
+        dob
+        age
         role
         createdAt
         _version
@@ -222,8 +237,8 @@ export const onUpdateAppointment = /* GraphQL */ `
         _lastChangedAt
         updatedAt
       }
-      date
-      time
+      bookingDateTime
+      status
       notes
       createdAt
       _version
@@ -257,6 +272,9 @@ export const onDeleteAppointment = /* GraphQL */ `
         fName
         lName
         email
+        phone
+        dob
+        age
         role
         createdAt
         _version
@@ -264,8 +282,8 @@ export const onDeleteAppointment = /* GraphQL */ `
         _lastChangedAt
         updatedAt
       }
-      date
-      time
+      bookingDateTime
+      status
       notes
       createdAt
       _version

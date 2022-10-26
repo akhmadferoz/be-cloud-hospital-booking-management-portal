@@ -4,7 +4,7 @@ enum USER_ROLE {
   PATIENT
 }
 
-type User @model @auth(rules: [{ allow: public}]) {
+type User @model @auth(rules: [{ allow: public }]) {
   id: ID!
   fName: String
   lName: String
@@ -13,7 +13,7 @@ type User @model @auth(rules: [{ allow: public}]) {
   createdAt: AWSDateTime!
 }
 
-type Doctor @model @auth(rules: [{ allow: public}]) {
+type Doctor @model @auth(rules: [{ allow: public }]) {
   id: ID!
   fName: String
   lName: String
@@ -23,25 +23,44 @@ type Doctor @model @auth(rules: [{ allow: public}]) {
   createdAt: AWSDateTime!
 }
 
-type Patient @model @auth(rules: [{ allow: public}]) {
-  # @key(name: "byDoctor", fields: ["doctorID"])
+type Patient @model @auth(rules: [{ allow: public }]) {
   id: ID!
   fName: String
   lName: String
   email: String
+  phone: String
+  dob: AWSDateTime
+  age: Int
   role: USER_ROLE
   createdAt: AWSDateTime!
 }
 
-type Appointment @model @auth(rules: [{ allow: public}]) {
-  # @key(name: "byDoctor", fields: ["doctorID"])
+enum APPOINTMENT_STATUS {
+  PENDING
+  CONFIRMED
+  CANCELLED
+}
+
+type Appointment
+  @model
+  @auth(rules: [{ allow: public }])
+  @key(
+    name: "byPatient"
+    fields: ["patientID"]
+    queryField: "listAppointmentsByPatient"
+  )
+  @key(
+    name: "byDoctor"
+    fields: ["doctorID"]
+    queryField: "listAppointmentsByDoctor"
+  ) {
   id: ID!
   doctorID: ID!
   doctor: Doctor @connection(fields: ["doctorID"])
   patientID: ID!
   patient: Patient @connection(fields: ["patientID"])
-  date: String
-  time: String
+  bookingDateTime: String
+  status: APPOINTMENT_STATUS
   notes: String
   createdAt: AWSDateTime!
 }
